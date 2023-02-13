@@ -3,7 +3,7 @@
 <h1>Posts</h1>
 
 <div id="posts">
-  <% @posts.each do |post| %>
+  <% @posts.reverse_each do |post| %>
     <%= render post %>
     <p>
       <%= link_to "Show this post", post %>
@@ -12,3 +12,11 @@
 </div>
 
 <%= link_to "New post", new_post_path %>
+
+<% if user_signed_in? %>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "Sign in", new_user_session_path %>
+  <%= link_to "Sign up", new_user_registration_path %>  
+<% end %>
+

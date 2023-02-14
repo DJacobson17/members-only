@@ -9,9 +9,10 @@
     <%= post.body %>
   </p>
 
-  <p>
-    <strong>Author:</strong>
-    <%= post.user.email %>
-  </p>
-
+  <% if user_signed_in? %>
+    <p>
+      <strong>Author:</strong>
+      <%= post.user.email %>
+    </p>
+  <% end %>
 </div>
